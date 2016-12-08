@@ -2,11 +2,10 @@
 
 import re
 
-f = open("1.in")
+f = open("input.txt")
 raw = f.readlines()
 
-ips = 0
-b = 0
+tls = 0
 
 for l in raw:
 	line = l.strip()
@@ -28,10 +27,35 @@ for l in raw:
 					break
 
 		if valid == False: 
-			b += 1
 			break
 
 	if valid == True:
-		ips += 1
+		tls += 1
 
-print(ips)
+print(tls)
+
+ssl = 0
+
+for l in raw:
+	line = l.strip()
+	parts = re.split("[\[\]]", line)
+
+	target = set()
+	found = set()
+
+	for i, p in enumerate(parts):
+		if i % 2 == 0:
+			for j in range(len(p) - 2):
+				if p[j] == p[j+2] and p[j] != p[j+1]:
+					target.add(p[j+1] + p[j] + p[j+1])
+
+	for i, p in enumerate(parts):
+		if i % 2: # inside brackets
+			for t in target:
+				if t in p:
+					found.add(t)
+
+	if len(found) > 0 and len(target) > 0:
+		ssl += 1
+
+print(ssl)

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-f = open("1.in")
+f = open("input.txt")
 raw = f.readlines()
 
 answer = [[],[],[],[],[],[],[],[]]
@@ -15,5 +15,13 @@ for pos in answer:
 	for c in set(pos):
 		freq.append((pos.count(c), c))
 	print(sorted(freq, reverse = True)[0][1], end = "")
+
+print("")
+
+for pos in answer:
+	freq = []
+	for c in set(pos):
+		freq.append((pos.count(c), c))
+	print(sorted(freq)[0][1], end = "")
 
 print("")

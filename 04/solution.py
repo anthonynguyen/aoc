@@ -2,17 +2,11 @@
 
 import functools
 
-# aczupnetwp-dnlgpyrpc-sfye-dstaatyr-561[patyc]
-# jsehsyafy-vqw-ljsafafy-866[nymla]
-# tyepcyletzylw-ncjzrpytn-prr-opawzjxpye-743[cnrdl]
-# foadouwbu-qvcqczohs-obozmgwg-662[lamjh]
-# ckgvutofkj-pkrrehkgt-zkinturume-436[krtue]
-
-f = open("1.in")
+f = open("input.txt")
 raw = f.readlines()
 
+s = 0
 valid = []
-
 alphabet = "abcdefghijklmnopqrstuvwxyz"
 
 # frequency is sorted descending, but letters are sorted ascending
@@ -42,7 +36,10 @@ for l in raw:
 	parts = parts[-1].split("[")
 	sid = int(parts[0])
 	if chksum == parts[-1][:-1]:
+		s += sid
 		valid.append(l.strip())
+
+print(s)
 
 for v in valid:
 	parts = v.split("-")
@@ -59,4 +56,5 @@ for v in valid:
 		i = (i + sid) % 26
 		realName += alphabet[i]
 	
-	print(sid, realName)
+	if "north" in realName:
+		print(sid, realName)

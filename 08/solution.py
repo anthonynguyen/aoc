@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-f = open("1.in")
+f = open("input.txt")
 raw = f.readlines()
 
 screen = []
@@ -44,6 +44,14 @@ for l in raw:
 			for i in range(len(screen)):
 				screen[i][x] = c[i]
 
+l = 0
+for r in screen:
+	for c in r:
+		if c:
+			l += 1
+
+print(l)
+
 for i in range(len(screen)):
 	for j in range(len(screen[i])):
 		if screen[i][j]:
@@ -52,7 +60,6 @@ for i in range(len(screen)):
 			print(" ", end=" ")
 
 		if j % 5 == 4:
-			print("  ", end = "")
+			print(" ", end = "")
 
 	print("")
-
