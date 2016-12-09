@@ -14,8 +14,10 @@ CC=gcc
 CFLAGS=-Wall
 LDFLAGS=`cat $1/LDFLAGS.txt 2> /dev/null`
 
-$CC $CFLAGS $LDFLAGS -o solution_$1 run.c $1/solution.c
+$CC $CFLAGS $LDFLAGS -o $1/solution_$1 run.c $1/solution.c
 
 if [ "$2" = "run" ]; then
+	cd $1
 	./solution_$1
+	cd ..
 fi
