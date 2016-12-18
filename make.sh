@@ -11,7 +11,7 @@ if [ ! -e "$1/solution.c" ]; then
 fi
 
 CC=gcc
-CFLAGS=-Wall
+CFLAGS="-Wall -O3"
 LDFLAGS=`cat $1/LDFLAGS.txt 2> /dev/null`
 
 $CC $CFLAGS $LDFLAGS -o $1/solution_$1 run.c $1/solution.c
