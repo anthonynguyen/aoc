@@ -79,8 +79,5 @@ def part2():
 
 	return gr
 
-answer_1 = part1()
-answer_2 = part2()
-
-print(answer_1)
-print(answer_2)
+print(part1())
+print(part2())

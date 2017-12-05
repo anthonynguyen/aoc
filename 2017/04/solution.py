@@ -1,19 +1,17 @@
 #!/usr/bin/env python3
 
 f = open("input.txt")
-raw = f.readlines()
+phrases = [x.strip().split() for x in f.readlines()]
 
-answer_1 = 0
-answer_2 = 0
+answer1 = 0
+answer2 = 0
 
-for l in raw:
-	words = l.strip().split()
-	if len(words) == len(set(words)):
-		answer_1 += 1
+for phrase in phrases:
+	if len(phrase) == len(set(phrase)):
+		answer1 += 1
 
-	anaSet = set([str(sorted(x)) for x in words])
-	if len(words) == len(anaSet):
-		answer_2 += 1
+	if len(phrase) == len(set([str(sorted(x)) for x in phrase])):
+		answer2 += 1
 
-print(answer_1)
-print(answer_2)
+print(answer1)
+print(answer2)

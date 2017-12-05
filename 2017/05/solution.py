@@ -7,7 +7,7 @@ def run(instructions, part2):
 	steps = 0
 	cur = 0
 
-	while cur < len(instructions):
+	while cur >= 0 and cur < len(instructions):
 		inst = instructions[cur]
 
 		if part2 and inst >= 3:
@@ -20,8 +20,5 @@ def run(instructions, part2):
 
 	return steps
 
-answer_1 = run(lines[:], False)
-answer_2 = run(lines[:], True)
-
-print(answer_1)
-print(answer_2)
+print(run(lines[:], False))
+print(run(lines[:], True))
