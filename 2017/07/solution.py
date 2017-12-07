@@ -61,9 +61,6 @@ def inspect(p):
 def explore(node):
 	global programs, weights
 
-	# if wasBalanced:
-	# 	return False
-
 	balanced = nodeBalanced(node)
 	if balanced:
 		return True
